@@ -15,6 +15,8 @@ gem 'rake'
 gem 'bcrypt'
 
 gem 'shotgun'
+gem 'sinatra-flash'
+gem 'sinatra-redirect-with-flash'
 
 group :development, :test do
   gem 'faker'
