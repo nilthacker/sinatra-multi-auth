@@ -1,7 +1,7 @@
 GOOGLE_API_SCOPES = ['profile','email'].join(' ')
 
 def auth_client_google
-  @auth_client ||= OAuth2::Client.new(ENV['GOOGLE_API_CLIENT'], ENV['GOOGLE_API_SECRET'], {
+  @auth_client ||= OAuth2::Client.new(ENV['GOOGLE_CLIENT_ID'], ENV['GOOGLE_CLIENT_SECRET'], {
                           :site => 'https://accounts.google.com',
                           :authorize_url => "/o/oauth2/auth",
                           :token_url => "/o/oauth2/token"

@@ -6,9 +6,10 @@ class CreateUsers < ActiveRecord::Migration
   ###############################################
   def change
     create_table :users do |t|
-      t.string :fullname
+      t.string :full_name
       t.string :email, :null => false
-      t.string :password_hash, :null => false
+      t.string :password_hash
+      t.string :avatar_url
       t.timestamps null: false
     end
 
@@ -17,7 +18,7 @@ class CreateUsers < ActiveRecord::Migration
     create_table :auths do |t|
       t.references :user, :null => false
       t.string :unique_id, :null => false
-      t.string :type, :null => false
+      t.string :service, :null => false
       t.timestamps null: false
     end
 
