@@ -1,5 +1,5 @@
 get '/sessions/new' do
-  if session[:user_id]
+  if authenticated?
     @user = User.find(session[:user_id])
     redirect "/users/#{@user.id}"
   else
@@ -9,7 +9,6 @@ end
 
 post '/sessions/new' do
   @user = User.find_by_email(params[:email])
-  # debugger
   if @user && @user.authenticate(params[:password_plaintext])
     session[:user_id] = @user.id
     redirect "/users/#{@user.id}"

@@ -8,13 +8,21 @@ get '/users/new' do
 end
 
 post '/users/new' do
-  @user = User.new(first_name: params[:first_name], last_name: params[:last_name], email: params[:email])
-  @user.password = params[:password_plaintext]
-  if @user.save
-    redirect "/sessions/new"
+  p params.inspect
+  if params[:password_plaintext1] != params[:password_plaintext2]
+    p params[:password_plaintext1]
+    p params[:password_plaintext2]
+    redirect '/users/new', error: "Both passwords must match."
   else
-    @errors = @user.errors.full_messages
-    erb :"user/new"
+    @user = User.new(first_name: params[:first_name], last_name: params[:last_name], email: params[:email])
+    @user.password = params[:password_plaintext1]
+    if @user.save
+      session[:user_id] = @user.id
+      redirect "/users/#{@user.id}", notice: "Registration successful."
+    else
+      @errors = @user.errors.full_messages
+      erb :"user/new"
+    end
   end
 end
 

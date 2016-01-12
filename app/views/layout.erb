@@ -13,6 +13,12 @@
   <%= erb :_nav, layout: false %>
 </nav>
 <body>
+  <% if flash[:notice] %>
+    <center><p class="alert alert-success" style="color: green; border: 1px dashed green; padding: 20px; width: 500px"><%= flash[:notice] %></p></center>
+  <% end %>
+  <% if flash[:error] %>
+    <center><p class="alert alert-success" style="color: red; border: 1px dashed red; padding: 20px; width: 500px"><%= flash[:error] %></p></center>
+  <% end %>
   <%= yield %>
 </body>
 </html>
