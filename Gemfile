@@ -15,7 +15,10 @@ gem 'rake'
 gem 'bcrypt'
 
 gem 'shotgun'
+gem 'pry'
 
+gem 'octokit'
+gem 'oauth2'
 group :development, :test do
   gem 'faker'
   gem 'rspec'

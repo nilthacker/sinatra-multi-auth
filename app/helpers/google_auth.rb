@@ -1,3 +1,5 @@
+GOOGLE_API_SCOPES = ['profile','email'].join(' ')
+
 def auth_client_google
   @auth_client ||= OAuth2::Client.new(ENV['GOOGLE_API_CLIENT'], ENV['GOOGLE_API_SECRET'], {
                           :site => 'https://accounts.google.com',
@@ -60,4 +62,6 @@ def auth_sign_out
   session.delete :access_token
   session.delete :refresh_token
   session.delete :user_info
+end
+
 end

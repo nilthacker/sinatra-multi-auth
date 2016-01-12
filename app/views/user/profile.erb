@@ -1,12 +1,12 @@
 <div class="container">
   <% if @current_user && (@current_user.id == @profile_owner.id) %>
-  <p>Welcome to the github oauth test, <%= @current_user.first_name %>.</p>
+  <p>Welcome to the github oauth test, <%= @current_user.full_name %>.</p>
   <p>Some useful information you granted access to:</p>
   <ul>
-    <li>name: <%= @current_user.first_name %> <%= @current_user.last_name %></li>
+    <li>name: <%= @current_user.full_name %></li>
     <li>primary email address: <%= @current_user.email %></li>
   </ul>
   <% else %>
-  <p>This is <%= @profile_owner.first_name %>'s profile.</p>
+  <p>This is <%= @profile_owner.full_name %>'s profile.</p>
   <% end %>
 </div>

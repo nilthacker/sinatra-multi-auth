@@ -16,20 +16,13 @@
   <% end %>
   <!-- Text input-->
   <div class="form-group">
-    <label class="col-md-4 control-label" for="first_name">First Name</label>
+    <label class="col-md-4 control-label" for="full_name">Full Name</label>
     <div class="col-md-4">
-    <input id="first_name" name="first_name" type="text" value="<%= @user.try(:first_name) %>" class="form-control input-md" required="">
+    <input id="full_name" name="full_name" type="text" value="<%= @user.try(:fullname) %>" class="form-control input-md" required="">
     </div>
   </div>
   <br>
-  <div class="form-group">
-    <label class="col-md-4 control-label" for="last_name">Last Name</label>
-    <div class="col-md-4">
-    <input id="last_name" name="last_name" type="text" value="<%= @user.try(:last_name) %>" class="form-control input-md" required="">
-    </div>
-  </div>
-  <br>
-  <!-- Text input-->
+<!-- Text input-->
   <div class="form-group">
     <label class="col-md-4 control-label" for="email">Email Address</label>
     <div class="col-md-4">
