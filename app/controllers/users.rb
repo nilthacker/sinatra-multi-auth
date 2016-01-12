@@ -3,7 +3,7 @@ get '/users/new' do
     @user = User.find(session[:user_id])
     redirect "/users/#{@user.id}", notice: "You're already logged in. Why register a new account?"
   else
-    erb :"user/new"
+    erb :"user/new", layout: false
   end
 end
 

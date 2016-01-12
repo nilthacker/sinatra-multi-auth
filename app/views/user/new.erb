@@ -1,64 +1,61 @@
-<div class="container">
-  <br>
-  <form class="form-horizontal" action="/users/new" method="POST">
-  <fieldset>
-  <!-- Form Name -->
-  <legend>New User Registration</legend>
-  <% if @errors %>
-    <div class="errors-wrapper">
-      <span>Login failed:</span>
-      <ul class="errors">
-        <% @errors.each do |error| %>
-          <li class="error"><%= error %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-  <!-- Text input-->
-  <div class="form-group">
-    <label class="col-md-4 control-label" for="first_name">First Name</label>
-    <div class="col-md-4">
-    <input id="first_name" name="first_name" type="text" value="<%= @user.try(:first_name) %>" class="form-control input-md" required="">
-    </div>
+<form class="form-horizontal" action="/users/new" method="POST">
+<fieldset>
+<!-- Form Name -->
+<legend>New User Registration</legend>
+<% if @errors %>
+  <div class="errors-wrapper">
+    <span>Login failed:</span>
+    <ul class="errors">
+      <% @errors.each do |error| %>
+        <li class="error"><%= error %></li>
+      <% end %>
+    </ul>
   </div>
-  <br>
-  <div class="form-group">
-    <label class="col-md-4 control-label" for="last_name">Last Name</label>
-    <div class="col-md-4">
-    <input id="last_name" name="last_name" type="text" value="<%= @user.try(:last_name) %>" class="form-control input-md" required="">
-    </div>
+<% end %>
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="first_name">First Name</label>
+  <div class="col-md-4">
+  <input id="first_name" name="first_name" type="text" value="<%= @user.try(:first_name) %>" class="form-control input-md" required="">
   </div>
-  <br>
-  <!-- Text input-->
-  <div class="form-group">
-    <label class="col-md-4 control-label" for="email">Email Address</label>
-    <div class="col-md-4">
-    <input id="email" name="email" type="email" value="<%= @user.try(:email) %>" class="form-control input-md" required="">
-    </div>
-  </div>
-  <br>
-  <!-- Password input-->
-  <div class="form-group">
-    <label class="col-md-4 control-label" for="password_plaintext1">Password</label>
-    <div class="col-md-4">
-      <input id="password_plaintext1" name="password_plaintext1" type="password" class="form-control input-md" required="">
-    </div>
-  </div>
-  <br>
-  <div class="form-group">
-    <label class="col-md-4 control-label" for="password_plaintext2">Password (again)</label>
-    <div class="col-md-4">
-      <input id="password_plaintext2" name="password_plaintext2" type="password" class="form-control input-md" required="">
-    </div>
-  </div>
-  <br>
-  <!-- Button -->
-  <div class="form-group">
-    <label class="col-md-4 control-label" for="register"></label>
-    <div class="col-md-4">
-      <button id="register" name="register" class="btn btn-primary">Register</button>
-    </div>
-  </div>
-  </fieldset>
-  </form>
 </div>
+<br>
+<div class="form-group">
+  <label class="col-md-4 control-label" for="last_name">Last Name</label>
+  <div class="col-md-4">
+  <input id="last_name" name="last_name" type="text" value="<%= @user.try(:last_name) %>" class="form-control input-md" required="">
+  </div>
+</div>
+<br>
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="email">Email Address</label>
+  <div class="col-md-4">
+  <input id="email" name="email" type="email" value="<%= @user.try(:email) %>" class="form-control input-md" required="">
+  </div>
+</div>
+<br>
+<!-- Password input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="password_plaintext1">Password</label>
+  <div class="col-md-4">
+    <input id="password_plaintext1" name="password_plaintext1" type="password" class="form-control input-md" required="">
+  </div>
+</div>
+<br>
+<div class="form-group">
+  <label class="col-md-4 control-label" for="password_plaintext2">Password (again)</label>
+  <div class="col-md-4">
+    <input id="password_plaintext2" name="password_plaintext2" type="password" class="form-control input-md" required="">
+  </div>
+</div>
+<br>
+<!-- Button -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="register"></label>
+  <div class="col-md-4">
+    <button id="register" name="register" class="btn btn-primary">Register</button>
+  </div>
+</div>
+</fieldset>
+</form>
