@@ -2,7 +2,7 @@ get '/login/github' do
   # set referrer in the session for future use
   session[:referrer] = request.referrer
   # redirect browser to github for login / authorization
-  redirect Octokit::Client.new.authorize_url(CLIENT_ID, :scope => 'user:email')
+  redirect Octokit::Client.new.authorize_url(GITHUB_CLIENT_ID, :scope => 'user:email')
 end
 
 get '/auth/github/callback' do

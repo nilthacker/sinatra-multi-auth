@@ -19,9 +19,10 @@ gem 'pry'
 gem 'sinatra-flash'
 gem 'sinatra-redirect-with-flash'
 
-
 gem 'octokit'
 gem 'oauth2'
+gem 'dotenv'
+
 group :development, :test do
   gem 'faker'
   gem 'rspec'

@@ -2,8 +2,8 @@ def get_github_user_data(access_token)
 
   # set up github oauth client with application id & secret
   client = Octokit::Client.new \
-  :client_id => CLIENT_ID,
-  :client_secret => CLIENT_SECRET
+  :client_id => GITHUB_CLIENT_ID,
+  :client_secret => GITHUB_CLIENT_SECRET
 
   # make sure the token is still valid
   begin
