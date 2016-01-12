@@ -1,7 +1,7 @@
 get '/users/new' do
-  if session[:user_id]
+  if authenticated?
     @user = User.find(session[:user_id])
-    redirect "/users/#{@user.id}"
+    redirect "/users/#{@user.id}", notice: "You're already logged in. Why register a new account?"
   else
     erb :"user/new"
   end
