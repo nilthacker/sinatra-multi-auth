@@ -3,7 +3,6 @@
   <% if authenticated? %>
   <li><a href="/logout">Logout</a></li>
   <% else %>
-  <li><a href="/users/new">Register</a></li>
-  <li><a href="/sessions/new">Login</a></li>
+  <li><a href="#login-box" rel="modal:open">Login/Register</a></li>
   <% end %>
 </ul>

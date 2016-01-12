@@ -21,7 +21,7 @@ get '/auth/github/callback' do
     @fullname = github_user_data.name
     @email = github_user_data.private_emails.first
     @avatar_url = github_user_data.avatar_url
-    erb :"user/new"
+    erb :"user/github_new"
   else
     session[:user_id] = user.id
     redirect session[:referrer]
