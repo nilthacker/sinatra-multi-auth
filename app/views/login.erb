@@ -1,0 +1,41 @@
+<div class="container">
+  <br>
+  <form class="form-horizontal" action="/sessions/new" method="POST">
+  <fieldset>
+
+  <!-- Form Name -->
+  <legend>User Login</legend>
+  <% if @error %>
+    <div class="errors-wrapper">
+      <span>Login failed:</span>
+      <ul class="errors">
+        <li class="error"><%= @error %></li>
+      </ul>
+    </div>
+  <% end %>
+  <!-- Text input-->
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="email">Email Address</label>
+    <div class="col-md-4">
+    <input id="email" name="email" type="email" class="form-control input-md" required="">
+    </div>
+  </div>
+  <br>
+  <!-- Password input-->
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="password_plaintext">Password</label>
+    <div class="col-md-4">
+      <input id="password_plaintext" name="password_plaintext" type="password" placeholder="" class="form-control input-md" required="">
+    </div>
+  </div>
+  <br>
+  <!-- Button -->
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="register"></label>
+    <div class="col-md-4">
+      <button id="login" name="login" class="btn btn-primary">Login</button>
+    </div>
+  </div>
+  </fieldset>
+  </form>
+</div>
