@@ -21,7 +21,15 @@
   <% if flash[:error] %>
     <center><p class="alert alert-success" style="color: red; border: 1px dashed red; padding: 20px; width: 500px"><%= flash[:error] %></p></center>
   <% end %>
-  <%= erb :_login_providers, layout: false %>
+  <div id="login-box" style="display: none">
+    <%= erb :_login_providers, layout: false %>
+  </div>
+  <div id="login-form" style="display: none">
+    <%= erb :_login_form, layout: false %>
+  </div>
+  <div id="registration-form" style="display: none">
+    <%= erb :"user/_registration_form", layout: false %>
+  </div>
   <%= yield %>
 </body>
 </html>

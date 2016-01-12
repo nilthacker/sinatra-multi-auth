@@ -3,7 +3,7 @@ get '/sessions/new' do
     @user = User.find(session[:user_id])
     redirect "/users/#{@user.id}", notice: "Thank you for logging in."
   else
-    erb :login, layout: false
+    erb :login
   end
 end
 
