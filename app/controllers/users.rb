@@ -43,13 +43,34 @@ post '/users/:service/new' do
 end
 
 get '/users/:user_id' do
-  @current_user = User.find(session[:user_id]) if authenticated?
+  @current_user = current_user if authenticated?
   @profile_owner = User.find(params[:user_id])
   redirect '/' unless @profile_owner
-  @not_a_local_user = local_user?(@current_user.email)
+  @not_a_local_user = local_user?(@current_user.email) if @current_user
   erb :"user/profile"
 end
 
 get '/users/:user_id/createpassword' do
-    
+  @current_user = current_user if authenticated?
+  @profile_owner = User.find(params[:user_id])
+  if @current_user.id === @profile_owner.id
+    erb :"user/_add_password", layout: false
+  else
+    redirect 'https://www.youtube.com/embed/VFZIiWmKBMs?autoplay=1'
+  end
+end
+
+post '/users/:user_id/createpassword' do
+  if params[:password_plaintext1] != params[:password_plaintext2]
+    redirect "/users/#{params[:user_id]}", error: "Your passwords don't match, try again"
+  else
+    @current_user = current_user if authenticated?
+    @profile_owner = User.find(params[:user_id])
+    if @current_user.id === @profile_owner.id
+      @current_user.password = params[:password_plaintext1]
+      @current_user.save
+    end
+    redirect "/users/#{params[:user_id]}", notice: "Your password has been added"
+  end
+
 end
