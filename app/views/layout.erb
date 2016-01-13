@@ -5,7 +5,7 @@
   <link rel="stylesheet" href="/css/application.css">
   <link rel="stylesheet" href="/css/bootstrap.css">
 
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script src="/js/application.js"></script>
   <script src="/js/jquery.modal.min.js" type="text/javascript" charset="utf-8"></script>
   <link rel="stylesheet" href="/css/jquery.modal.css" type="text/css" media="screen" />
@@ -17,10 +17,10 @@
 </nav>
 <body>
   <% if flash[:notice] %>
-    <center><p class="alert alert-success" style="color: green; border: 1px dashed green; padding: 20px; width: 500px"><%= flash[:notice] %></p></center>
+    <center><p class="alert alert-success"><%= flash[:notice] %></p></center>
   <% end %>
   <% if flash[:error] %>
-    <center><p class="alert alert-success" style="color: red; border: 1px dashed red; padding: 20px; width: 500px"><%= flash[:error] %></p></center>
+    <center><p class="alert alert-success"><%= flash[:error] %></p></center>
   <% end %>
   <div id="login-box" style="display: none">
     <%= erb :_login_providers, layout: false %>

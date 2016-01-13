@@ -1,4 +1,5 @@
 <div class="container">
+  <center><img src="<%= @profile_owner.avatar_url %>" height="150px" title="<%= @profile_owner.full_name %>'s avatar" style="border-radius: 50%"></center>
   <% if @current_user && (@current_user.id == @profile_owner.id) %>
   <p>Welcome to the github oauth test, <%= @current_user.full_name %>.</p>
   <p>Some useful information you granted access to:</p>
