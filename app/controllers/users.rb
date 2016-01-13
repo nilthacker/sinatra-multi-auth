@@ -24,21 +24,32 @@ post '/users/new' do
 end
 
 post '/users/:service/new' do
-    @user = User.new(full_name: params[:full_name], email: params[:email], avatar_url: params[:avatar_url])
-    if @user.save
-      Auth.create(user_id: @user.id, service: params[:service], unique_id: params[:unique_id])
-      session[:user_id] = @user.id
-      redirect "/users/#{@user.id}", notice: "Registration successful."
+    if (user = existing_user(params[:email]))
+      Auth.create(user_id: user.id, service: params[:service], unique_id: params[:unique_id])
+      session[:user_id] = user.id
+      redirect "/users/#{user.id}", notice: "#{params[:service].capitalize} account successfully linked."
     else
-      @errors = @user.errors.full_messages
-      redirect "/login/#{params[:service]}", error: @errors.join(' & ')
+      @user = User.new(full_name: params[:full_name], email: params[:email], avatar_url: params[:avatar_url])
+      if @user.save
+        Auth.create(user_id: @user.id, service: params[:service], unique_id: params[:unique_id])
+        session[:user_id] = @user.id
+        redirect "/users/#{@user.id}", notice: "Registration successful."
+      else
+        @errors = @user.errors.full_messages
+        redirect "/login/#{params[:service]}", error: @errors.join(' & ')
+      end
     end
 
 end
 
 get '/users/:user_id' do
-  @current_user = User.find(session[:user_id]) if session[:user_id]
+  @current_user = User.find(session[:user_id]) if authenticated?
   @profile_owner = User.find(params[:user_id])
   redirect '/' unless @profile_owner
+  @not_a_local_user = local_user?(@current_user.email)
   erb :"user/profile"
+end
+
+get '/users/:user_id/createpassword' do
+    
 end

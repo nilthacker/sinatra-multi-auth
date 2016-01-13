@@ -9,4 +9,7 @@
   <% else %>
   <p>This is <%= @profile_owner.full_name %>'s profile.</p>
   <% end %>
+  <% if @not_a_local_user %>
+    <a href="/users/<%=@current_user.id%>/createpassword" rel="modal:open"> Add Password </a>
+  <% end %>
 </div>
