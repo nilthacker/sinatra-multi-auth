@@ -21,13 +21,34 @@ require 'sinatra/flash'
 require 'sinatra/redirect_with_flash'
 require "sinatra/reloader" if development?
 
-
 require 'erb'
+require 'octokit'
+require 'oauth2'
 
 # Some helper constants for path-centric logic
 APP_ROOT = Pathname.new(File.expand_path('../../', __FILE__))
 
 APP_NAME = APP_ROOT.basename.to_s
+
+# Import application OAuth keys from .env file
+begin
+  require 'dotenv'
+  Dotenv.load
+rescue
+end
+
+configure do
+  # By default, Sinatra assumes that the root is the file that calls the configure block.
+  # Since this is not the case for us, we set it manually.
+  set :root, APP_ROOT.to_path
+  # See: http://www.sinatrarb.com/faq.html#sessions
+  enable :sessions
+  set :session_secret, ENV['SESSION_SECRET'] || 'nil was here'
+
+  # Set the views to
+  set :views, File.join(Sinatra::Application.root, "app", "views")
+end
+
 
 # Set up the controllers and helpers
 Dir[APP_ROOT.join('app', 'controllers', '*.rb')].each { |file| require file }

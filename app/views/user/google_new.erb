@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="new-user">
+    <br>
+    <center><img src="<%= @avatar_url %>" height="75px" title="Google avatar" style="border-radius: 50%"></center>
+    <center><h3>Hello, <%= @full_name %>!</h3>
+    <p>It looks like this is your first time here. Please register.</p></center>
+  </div>
+  <form class="form-horizontal" action="/users/google/new" method="POST">
+  <fieldset>
+  <!-- Form Name -->
+  <legend>New User Registration</legend>
+  <!-- Text input-->
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="full_name">Name</label>
+    <div class="col-md-4">
+    <input id="full_name" name="full_name" type="text" value="<%= @full_name %>" class="form-control input-md" required="">
+    </div>
+  </div>
+  <!-- Text input-->
+  <div class="form-group">
+    <div class="col-md-4">
+    <input id="avatar_url" name="avatar_url" type="hidden" value="<%= @avatar_url %>" class="form-control input-md">
+      <input id="unique_id" name="unique_id" type="hidden" value="<%= @username %>" class="form-control input-md">
+    </div>
+  </div>
+    <!-- Text input-->
+  <div class="form-group">
+    <label class="col-md-6 control-label" for="email">Email Address</label>
+    <div class="col-md-6">
+    <input id="email" name="email" type="email" value="<%= @email  %>" class="form-control input-md" required="">
+    </div>
+  </div>
+  <!-- Button -->
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="register"></label>
+    <div class="col-md-4">
+      <button id="register" name="register" class="btn btn-primary">Register</button>
+    </div>
+  </div>
+  </fieldset>
+  </form>
+</div>
