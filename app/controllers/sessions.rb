@@ -1,6 +1,6 @@
 get '/login' do
   if authenticated?
-    @user = User.find(session[:user_id])
+    @user = User.find_by_id(session[:user_id])
     redirect "/users/#{@user.id}", notice: "Thank you for logging in."
   else
     erb :login
