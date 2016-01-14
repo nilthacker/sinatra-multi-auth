@@ -22,8 +22,8 @@ gem 'sinatra-redirect-with-flash'
 gem 'octokit'
 gem 'oauth2'
 gem 'dotenv'
+gem 'faker'
 
 group :development, :test do
-  gem 'faker'
   gem 'rspec'
 end

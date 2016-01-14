@@ -1,4 +1,29 @@
-<p><a href="/login/google">Login/register with Google</a></p>
-<p><a href="/login/github">Login/register with GitHub</a></p>
-<p><a href="#login-form" rel="modal:open">Login with email address</a></p>
-<p><a href="#registration-form" rel="modal:open">Register with email address</a></p>
+<div class="modal fade" id="login-box" tabindex="-1" role="dialog" aria-labelledby="login-box">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <center><h4 class="modal-title">Sign in with one of these options:</h4></center>
+      </div>
+      <div class="modal-body">
+        <center>
+          <p><a href="/login/google" class="btn btn-lg btn-social btn-google"><span class="fa fa-google"></span> Login with Google</a></p>
+          <p><a href="/login/github" class="btn btn-lg btn-social btn-github"><span class="fa fa-github"></span> Login with GitHub</a></p>
+        </center>
+      </div>
+      <div class="modal-header">
+        <center>
+          <h4 class="modal-title">Or do something with App account:</h4>
+        </center>
+      </div>
+      <div class="modal-body">
+        <center>
+          <p><a href="" data-toggle="modal" data-target="#login-form" class="btn btn-lg btn-social btn-adn"><span class="fa fa-adn"></span> Login with App</a></p>
+          <% if !authenticated? %>
+          <p><a href="" data-toggle="modal" data-target="#registration-form">Create a new App account</a></p>
+          <% end %>
+        </center>
+      </div>
+    </div>
+  </div>
+</div>

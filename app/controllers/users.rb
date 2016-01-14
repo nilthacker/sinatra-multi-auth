@@ -1,6 +1,6 @@
 get '/users/new' do
   if authenticated?
-    @user = User.find(session[:user_id])
+    @user = User.find_by_id(session[:user_id])
     redirect "/users/#{@user.id}", notice: "You're already logged in. Why register a new account?"
   else
     erb :"user/new", layout: false
@@ -44,7 +44,7 @@ end
 
 get '/users/:user_id' do
   @current_user = current_user if authenticated?
-  @profile_owner = User.find(params[:user_id])
+  @profile_owner = User.find_by_id(params[:user_id])
   redirect '/' unless @profile_owner
   @not_a_local_user = local_user?(@current_user.email) if @current_user
   erb :"user/profile"
@@ -52,7 +52,7 @@ end
 
 get '/users/:user_id/createpassword' do
   @current_user = current_user if authenticated?
-  @profile_owner = User.find(params[:user_id])
+  @profile_owner = User.find_by_id(params[:user_id])
   if @current_user.id === @profile_owner.id
     erb :"user/_add_password", layout: false
   else
@@ -65,7 +65,7 @@ post '/users/:user_id/createpassword' do
     redirect "/users/#{params[:user_id]}", error: "Your passwords don't match, try again"
   else
     @current_user = current_user if authenticated?
-    @profile_owner = User.find(params[:user_id])
+    @profile_owner = User.find_by_id(params[:user_id])
     if @current_user.id === @profile_owner.id
       @current_user.password = params[:password_plaintext1]
       @current_user.save

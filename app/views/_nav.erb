@@ -1,8 +1,20 @@
-<ul>
-  <li><a href="/">Home</a></li>
-  <% if authenticated? %>
-  <li><a href="/logout">Logout</a></li>
-  <% else %>
-  <li><a href="#login-box" rel="modal:open">Login/Register</a></li>
-  <% end %>
-</ul>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">Title</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+        <% if authenticated? %>
+        <li><a href="/users/<%= current_user.id %>">Welcome <%= current_user.email %></a></li>
+        <li><a href="/logout">Logout</a></li>
+        <% else %>
+        <li><a href="" data-toggle="modal" data-target="#login-box">Login/Register</a></li>
+        <% end %>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>

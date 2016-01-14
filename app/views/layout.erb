@@ -3,34 +3,36 @@
 <head>
   <link rel="stylesheet" href="/css/normalize.css">
   <link rel="stylesheet" href="/css/application.css">
-  <link rel="stylesheet" href="/css/bootstrap.css">
+  <link rel="stylesheet" href="/css/bootstrap-social.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
   <script src="/js/application.js"></script>
-  <script src="/js/jquery.modal.min.js" type="text/javascript" charset="utf-8"></script>
-  <link rel="stylesheet" href="/css/jquery.modal.css" type="text/css" media="screen" />
 
-  <title></title>
+  <title>Authentication Skeleton</title>
 </head>
-<nav>
-  <%= erb :_nav, layout: false %>
-</nav>
+<%= erb :_nav, layout: false %>
 <body>
   <% if flash[:notice] %>
-    <center><p class="alert alert-success"><%= flash[:notice] %></p></center>
+    <center>
+      <p class="alert alert-info"><%= flash[:notice] %></p>
+    </center>
   <% end %>
   <% if flash[:error] %>
-    <center><p class="alert alert-success"><%= flash[:error] %></p></center>
+    <center>
+      <p class="alert alert-danger"><%= flash[:error] %></p>
+    </center>
   <% end %>
-  <div id="login-box" style="display: none">
-    <%= erb :_login_providers, layout: false %>
-  </div>
-  <div id="login-form" style="display: none">
-    <%= erb :_login_form, layout: false %>
-  </div>
-  <div id="registration-form" style="display: none">
-    <%= erb :"user/_registration_form", layout: false %>
-  </div>
+  <% if flash[:success] %>
+    <center>
+      <p class="alert alert-success"><%= flash[:success] %></p>
+    </center>
+  <% end %>
+  <%= erb :_login_providers, layout: false %>
+  <%= erb :_login_form, layout: false %>
+  <%= erb :"user/_registration_form", layout: false %>
   <%= yield %>
 </body>
 </html>

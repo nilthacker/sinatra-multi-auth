@@ -4,7 +4,7 @@ helpers do
   end
 
   def current_user
-    return User.find(session[:user_id]) if authenticated?
+    return User.find_by_id(session[:user_id]) if authenticated?
   end
 
   def existing_user(email)
