@@ -1,39 +1,27 @@
-<div class="modal fade" id="login-form" tabindex="-1" role="dialog" aria-labelledby="login-form">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <center><h4 class="modal-title">User Login</h4></center>
-      </div>
-      <div class="modal-body">
-        <form class="form-horizontal" action="/login" method="POST">
-        <fieldset>
-        <!-- Text input-->
-        <div class="form-group">
-          <label class="col-md-4 control-label" for="email">Email Address</label>
-          <div class="col-md-6">
-          <input id="email" name="email" type="email" class="form-control input-md" required="">
-          </div>
-        </div>
-        <br>
-        <!-- Password input-->
-        <div class="form-group">
-          <label class="col-md-4 control-label" for="password_plaintext">Password</label>
-          <div class="col-md-6">
-            <input id="password_plaintext" name="password_plaintext" type="password" placeholder="" class="form-control input-md" required="">
-          </div>
-        </div>
-        <br>
-        <!-- Button -->
-        <div class="form-group">
-          <label class="col-md-4 control-label" for="register"></label>
-          <div class="col-md-4">
-            <button id="login" name="login" class="btn btn-primary">Login</button>
-          </div>
-        </div>
-        </fieldset>
-        </form>
-      </div>
+<form class="form-horizontal" action="/login" method="POST">
+  <fieldset>
+  <!-- Text input-->
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="email">Email Address</label>
+    <div class="col-md-6">
+    <input id="email" name="email" type="email" class="form-control input-md" required="">
     </div>
   </div>
-</div>
+  <br>
+  <!-- Password input-->
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="password_plaintext">Password</label>
+    <div class="col-md-6">
+      <input id="password_plaintext" name="password_plaintext" type="password" placeholder="" class="form-control input-md" required="">
+    </div>
+  </div>
+  <br>
+  <!-- Button -->
+  <div class="form-group">
+    <label class="col-md-6 control-label" for="register"></label>
+    <div class="">
+      <button id="login" name="login" class="btn btn-primary">Login</button>
+    </div>
+  </div>
+  </fieldset>
+</form>
