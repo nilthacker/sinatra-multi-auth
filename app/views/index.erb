@@ -1,9 +1,44 @@
 <div class="container">
   <br>
-  <center><h1>Sinatra skeleton + many different authentication things</h1></center>
-  <p>Notes:</p>
-  <ul>
-    <li>User has ability to log in via google, github, and local accounts</li>
-    <li>User can link both google and github accounts to same website account</li>
-  </ul>
+  <center>
+    <div class="jumbotron">
+      <div class="container">
+        <h1>Title</h1>
+        <h5>tagline</h5>
+        <p>Now with <span class="badge"><%= rand(0..100) %>%</span> more <%= Faker::Hacker.noun %>s!</p>
+        <p><a class="btn btn-primary btn-lg" data-toggle="modal" data-target="#nelp-learn-more" role="button">Learn more</a></p>
+      </div>
+      <div class="modal fade" id="nelp-learn-more" tabindex="-1" role="dialog" aria-labelledby="nelp-learn-more">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+            </div>
+            <div class="modal-body">
+              Things go here.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr>
+    <div class="row">
+      <div class="col-md-4">
+        <h5><a href="">Thing 1</a></h5>
+        <p>Thing 1 things</p>
+        <hr>
+      </div>
+      <div class="col-md-4">
+        <h5><a href="">Thing 2</a></h5>
+        <p>Thing 2 things</p>
+        <hr>
+      </div>
+      <div class="col-md-4">
+        <h5><a href="">Thing 3</a></h5>
+        <p>Thing 3 things</p>
+        <hr>
+      </div>
+    </div>
+  </center>
 </div>
