@@ -7,7 +7,7 @@
       <center><img src="<%= @profile_owner.avatar_url %>" height="150px" title="<%= @profile_owner.full_name %>'s avatar" style="border-radius: 50%"></center>
       <% if @current_user && (@current_user.id == @profile_owner.id) %>
       <hr>
-      <p>Welcome to Nelp, <%= @current_user.full_name %>.</p>
+      <p>Welcome to App, <%= @current_user.full_name %>.</p>
       <p>Here's the information we have on file for you:</p>
       <ul>
         <li>name: <%= @current_user.full_name %></li>
@@ -16,7 +16,7 @@
       <% end %>
       <% if @not_a_local_user %>
         <hr>
-        <p>You may optionally add a password to your Nelp account and log in with your email address and password in the future.</p>
+        <p>You may optionally add a password to your App account and log in with your email address and password in the future.</p>
         <p><a href="/users/<%=@current_user.id%>/createpassword" data-toggle="modal" data-target="#add-password">Add Password</a></p>
       <% end %>
     </div>

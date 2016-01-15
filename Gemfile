@@ -1,3 +1,4 @@
+ruby "2.2.1"
 source 'https://rubygems.org'
 
 # PostgreSQL driver
@@ -23,7 +24,3 @@ gem 'octokit'
 gem 'oauth2'
 gem 'dotenv'
 gem 'faker'
-
-group :development, :test do
-  gem 'rspec'
-end

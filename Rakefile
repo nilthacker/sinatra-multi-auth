@@ -131,4 +131,5 @@ end
 desc 'Start PRY with application environment loaded'
 task "console" do
   exec "pry -r./config/environment"
+
 end
