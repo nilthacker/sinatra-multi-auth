@@ -26,6 +26,7 @@ require 'octokit'
 require 'oauth2'
 require 'linkedin-oauth2'
 require 'faker'
+require 'pwnedcheck'
 
 # Some helper constants for path-centric logic
 APP_ROOT = Pathname.new(File.expand_path('../../', __FILE__))

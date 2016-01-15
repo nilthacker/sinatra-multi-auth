@@ -1,6 +1,7 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    PwnedCheck (1.0.18)
     activemodel (4.2.5)
       activesupport (= 4.2.5)
       builder (~> 3.1)
@@ -93,6 +94,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  PwnedCheck
   activerecord (~> 4.1)
   activesupport (~> 4.1)
   bcrypt
