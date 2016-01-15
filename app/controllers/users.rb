@@ -47,6 +47,7 @@ get '/users/:user_id' do
   @profile_owner = User.find_by_id(params[:user_id])
   redirect '/' unless @profile_owner
   @not_a_local_user = local_user?(@current_user.email) if @current_user
+  @breaches = check_if_pwned("foo@bar.com")
   erb :"user/profile"
 end
 
