@@ -2,7 +2,8 @@ get '/login/linkedin' do
   # set referrer in the session for future use
   session[:referrer] = request.referrer
   # redirect browser to linkedin for login / authorization
-  linkedin_oauth = LinkedIn:OAuth2.new
+  LinkedIn.config.redirect_uri = linkedin_auth_callback_full_url
+  linkedin_oauth = LinkedIn::OAuth2.new
   redirect linkedin_oauth.auth_code_url
 end
 
