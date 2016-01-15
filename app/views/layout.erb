@@ -17,22 +17,31 @@
 <body>
   <% if flash[:notice] %>
     <center>
-      <p class="alert alert-info"><%= flash[:notice] %></p>
+      <div class="alert alert-info" data-dismiss="alert" role="alert">
+        <%= flash[:notice] %>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      </div>
     </center>
   <% end %>
   <% if flash[:error] %>
     <center>
-      <p class="alert alert-danger"><%= flash[:error] %></p>
+      <div class="alert alert-danger" data-dismiss="alert" role="alert">
+        <%= flash[:error] %>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    </div>
     </center>
   <% end %>
   <% if flash[:success] %>
     <center>
-      <p class="alert alert-success"><%= flash[:success] %></p>
+      <div class="alert alert-success" data-dismiss="alert" role="alert">
+        <%= flash[:success] %>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    </div>
     </center>
   <% end %>
   <%= erb :_login_providers, layout: false %>
-  <%= erb :_login_form, layout: false %>
-  <%= erb :"user/_registration_form", layout: false %>
+  <%= erb :_login_modal, layout: false %>
+  <%= erb :"user/_registration_modal", layout: false %>
   <%= yield %>
 </body>
 </html>
