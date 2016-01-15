@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="new-user">
+    <br>
+    <center><img src="<%= @avatar_url %>" height="150px" title="Google avatar" style="border-radius: 50%"></center>
+    <center><h3>Hello, <%= @full_name %>!</h3>
+    <p>It looks like you've already registered for App with this email address. Would you like to link this account to your App account?</p></center>
+  </div>
+  <form class="form-horizontal" action="/users/google/new" method="POST">
+  <!-- Text input-->
+  <div class="form-group">
+    <div class="col-md-5">
+    <input id="full_name" name="full_name" type="hidden" value="<%= @full_name %>" class="form-control input-md" required="">
+    </div>
+  </div>
+  <!-- Text input-->
+  <div class="form-group">
+    <div class="col-md-4">
+    <input id="avatar_url" name="avatar_url" type="hidden" value="<%= @avatar_url %>" class="form-control input-md">
+      <input id="unique_id" name="unique_id" type="hidden" value="<%= @username %>" class="form-control input-md">
+    </div>
+  </div>
+    <!-- Text input-->
+  <div class="form-group">
+    <div class="col-md-5">
+    <input id="email" name="email" type="hidden" value="<%= @email  %>" class="form-control input-md" required="">
+    </div>
+  </div>
+  <!-- Button -->
+  <div class="form-group">
+
+      <button id="register" name="register" class="btn btn-success col-md-2 col-md-offset-3">Link Account</button>
+
+
+      <a href="/" class="btn btn-danger col-md-2 col-md-offset-1">Cancel</a>
+
+  </div>
+  </form>
+</div>

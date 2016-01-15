@@ -39,7 +39,6 @@ post '/users/:service/new' do
         redirect "/login/#{params[:service]}", error: @errors.join(' & ')
       end
     end
-
 end
 
 get '/users/:user_id' do
