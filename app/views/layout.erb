@@ -39,9 +39,15 @@
     </div>
     </center>
   <% end %>
+  <% if !easter_egg? %>
   <%= erb :_login_providers, layout: false %>
   <%= erb :_login_modal, layout: false %>
   <%= erb :"user/_registration_modal", layout: false %>
   <%= yield %>
+  <% else %>
+  <div class="background-video">
+    <iframe height="80%" width="100%" src="https://www.youtube.com/embed/jofNR_WkoCE?start=34&autoplay=1&controls=0&showinfo=0&autohide=1" frameborder="0" allowfullscreen></iframe>
+  </div>
+  <% end %>
 </body>
 </html>
