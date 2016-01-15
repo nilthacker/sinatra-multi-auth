@@ -22,5 +22,7 @@ gem 'sinatra-redirect-with-flash'
 
 gem 'octokit'
 gem 'oauth2'
+gem 'linkedin-oauth2'
+
 gem 'dotenv'
 gem 'faker'
