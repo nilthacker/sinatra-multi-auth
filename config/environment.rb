@@ -24,6 +24,7 @@ require "sinatra/reloader" if development?
 require 'erb'
 require 'octokit'
 require 'oauth2'
+require 'linkedin-oauth2'
 require 'faker'
 require 'pwnedcheck'
 

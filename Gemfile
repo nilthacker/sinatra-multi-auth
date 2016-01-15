@@ -1,3 +1,4 @@
+ruby "2.2.1"
 source 'https://rubygems.org'
 
 # PostgreSQL driver
@@ -21,6 +22,8 @@ gem 'sinatra-redirect-with-flash'
 
 gem 'octokit'
 gem 'oauth2'
+gem 'linkedin-oauth2'
+
 gem 'dotenv'
 gem 'faker'
 gem 'PwnedCheck'
