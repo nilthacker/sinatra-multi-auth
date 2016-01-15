@@ -1,4 +1,17 @@
 <div class="container">
+  <% if @breaches %>
+  <div class="panel panel-danger">
+    <div class="panel-heading">Your email address was compromised in the following data <%= @breaches.length > 1 ? "breaches" : "breach" %>:</div>
+    <div class="panel-body">
+      <ul class="list-group" style="margin-bottom: 0">
+      <% @breaches.each do |breach| %>
+        <li class="list-group-item list-group-item-warning"><%= breach['Description'] %></li>
+      <% end %>
+      </ul>
+    </div>
+    <div class="panel-footer">There's much more information (and what to do next) <a href="https://haveibeenpwned.com/FAQs" target="_blank">here <i class="fa fa-external-link"></i>.</a></div>
+  </div>
+  <% end %>
   <div class="panel panel-default">
     <div class="panel-heading">
       <h3 class="panel-title"><%= @profile_owner.full_name %>'s Profile</h3>

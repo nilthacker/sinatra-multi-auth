@@ -26,3 +26,4 @@ gem 'linkedin-oauth2'
 
 gem 'dotenv'
 gem 'faker'
+gem 'PwnedCheck'
