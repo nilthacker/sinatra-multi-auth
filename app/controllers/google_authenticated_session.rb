@@ -12,6 +12,7 @@ get '/auth/google/callback' do
   @full_name = google_user_data["name"]
   @email = google_user_data["email"]
   @avatar_url = google_user_data["picture"]
+  @avatar_url = 'http://api.adorable.io/avatars/225/' + @email if @avatar_url.nil?
 
   # does the google user email address exist in the users table?
   matching_email = User.find_by_email(@email)

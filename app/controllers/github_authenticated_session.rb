@@ -18,7 +18,7 @@ get '/auth/github/callback' do
   @full_name = github_user_data.name
   @email = github_user_data.private_emails.first
   @avatar_url = github_user_data.avatar_url
-  erb :"user/github_new"
+  @avatar_url = 'http://api.adorable.io/avatars/225/' + @email if @avatar_url.nil?
 
   # does the github user email address exist in the users table?
   matching_email = User.find_by_email(@email)
