@@ -14,16 +14,24 @@ get '/auth/github/callback' do
 
   github_user_data = get_github_user_data(access_token)
 
-  # if the auth entry doesn't exist, create it
+  @username = github_user_data.login
+  @full_name = github_user_data.name
+  @email = github_user_data.private_emails.first
+  @avatar_url = github_user_data.avatar_url
+  @avatar_url = 'http://api.adorable.io/avatars/225/' + @email if @avatar_url.nil?
+
+  # does the github user email address exist in the users table?
+  matching_email = User.find_by_email(@email)
 
   # if there's a user in the db with the currently logged in github username, return that user
   # otherwise show the registration form with the github info prefilled in the registration form
   auth =  Auth.find_by_unique_id(github_user_data.login)
-  if auth.nil?
-    @username = github_user_data.login
-    @full_name = github_user_data.name
-    @email = github_user_data.private_emails.first
-    @avatar_url = github_user_data.avatar_url
+
+  # if the github user email exists in the users table and there's no auth entry for it, show the link form
+  if matching_email && auth.nil?
+    @service = "github"
+    erb :"/user/link_account"
+  elsif auth.nil?
     erb :"user/github_new"
   else
     session[:user_id] = auth.user.id
