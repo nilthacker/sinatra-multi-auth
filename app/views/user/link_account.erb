@@ -5,7 +5,7 @@
     <center><h3>Hello, <%= @full_name %>!</h3>
     <p>It looks like you've already registered for App with this email address. Would you like to link this account to your App account?</p></center>
   </div>
-  <form class="form-horizontal" action="/users/google/new" method="POST">
+  <form class="form-horizontal" action="/users/<%= @service %>/new" method="POST">
   <!-- Text input-->
   <div class="form-group">
     <div class="col-md-5">

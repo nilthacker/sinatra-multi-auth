@@ -22,6 +22,7 @@ get '/auth/google/callback' do
 
   # if the google user email exists in the users table and there's no auth entry for it, show the link form
   if matching_email && auth.nil?
+    @service = "google"
     erb :"/user/link_account"
   elsif auth.nil?
     erb :"user/google_new"
