@@ -20,8 +20,8 @@ get '/auth/github/callback' do
   @avatar_url = github_user_data.avatar_url
   erb :"user/github_new"
 
-# does the github user email address exist in the users table?
-  matching_email = User.find_by_email(github_user_data.private_emails.first)
+  # does the github user email address exist in the users table?
+  matching_email = User.find_by_email(@email)
 
   # if there's a user in the db with the currently logged in github username, return that user
   # otherwise show the registration form with the github info prefilled in the registration form

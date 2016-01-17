@@ -25,9 +25,10 @@ get '/auth/linkedin/callback' do
   @full_name = [linkedin_user_data.first_name, linkedin_user_data.last_name].join(' ')
   @email = linkedin_user_email.email_address
   @avatar_url = linkedin_user_avatar.picture_url
+  @avatar_url = 'http://api.adorable.io/avatars/225/' + @email if @avatar_url.nil?
 
   # does the linkedin user email address exist in the users table?
-  matching_email = User.find_by_email(linkedin_user_email)
+  matching_email = User.find_by_email(@email)
 
   # if the auth entry doesn't exist, create it
   # if there's a user in the db with the currently logged in linkedin username, return that user

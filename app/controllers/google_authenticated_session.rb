@@ -14,7 +14,7 @@ get '/auth/google/callback' do
   @avatar_url = google_user_data["picture"]
 
   # does the google user email address exist in the users table?
-  matching_email = User.find_by_email(google_user_data["email"])
+  matching_email = User.find_by_email(@email)
 
   # if there's a user in the db with the currently logged in google username, return that user
   # otherwise show the registration form with the google info prefilled in the registration form
