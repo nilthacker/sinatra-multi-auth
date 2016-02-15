@@ -14,10 +14,4 @@ helpers do
   def local_user?(email)
     User.find_by_email(email).password_hash.nil?
   end
-
-  def easter_egg?
-    authenticated? ? current_user.email == "sfislandfoxes@dbc.com" : false
-
-  end
-
 end
